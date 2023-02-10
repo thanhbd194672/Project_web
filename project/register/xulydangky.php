@@ -1,8 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 // Kết nối cơ sở dữ liệu
-include "../connect_database/connect_db.php";  
-
+include "connect_database/connect_db"
 // Dùng isset để kiểm tra Form
 if(isset($_POST['dangky']))
 {
@@ -32,7 +31,7 @@ die ();
 		die ();
 	}
 
-		else {
+	else {
 		$avatar_auto='../images/avatar.jpg';
 		$sql = "INSERT INTO public.users (username, password, name, telephone_num,avatar) VALUES ('$usernamedk', '$passwordk', '$ten_tkdk', '$sdtdk','$avatar_auto')";
 		$resultdangky = pg_query($db_connection, $sql) ;
