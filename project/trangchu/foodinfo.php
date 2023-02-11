@@ -110,7 +110,7 @@
                   <li><i class = "far fa-star"></i></li>
                 </ul>
                 <p class = "sale">Sale: <span><?php echo $row_['sale_off'] . "%"; ?></span></p> 
-              <button class="chi_tiet">Chi tiết</button>
+                <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
 
               </div>
             </div>
@@ -141,7 +141,7 @@
                 </ul>
                 
               <button class="chi_tiet">Chi tiết</button>
-              <p class = "sale">Sale: <span><?php echo $row_1['sale_off'] . "%"; ?></span></p> 
+              <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_1['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
               </div>
             </div>
             <!-- end of item -->
@@ -168,7 +168,7 @@
                 
               <p class = "sale">Sale: <span><?php echo $row_2['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+              <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_2['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
           
               </div>
             </div>
@@ -199,7 +199,7 @@
                 </ul>
               <p class = "sale">Sale: <span><?php echo $row_3['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+              <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_3['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
 
               </div>
             </div>
@@ -226,7 +226,7 @@
                 </ul>
               <p class = "sale">Sale: <span><?php echo $row_4['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+              <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_4['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
                 
               </div>
             </div>
@@ -254,7 +254,7 @@
                   <li><i class = "far fa-star"></i></li>
                 </ul>
               <p class = "sale">Sale: <span><?php echo $row_7['sale_off'] . "%"; ?></span></p> 
-              <button class="chi_tiet">Chi tiết</button>
+              <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_7['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
 
               </div>
             </div>
@@ -282,7 +282,7 @@
                 </ul>
               <p class = "sale">Sale: <span><?php echo $row_8['sale_off'] . "%"; ?></span></p> 
                 
-              <button class="chi_tiet">Chi tiết</button>
+              <a href=" <?php echo '/Project_web/project/restaurant/restaurant.php?stall='.$row_8['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
 
               </div>
             </div>

@@ -1,9 +1,9 @@
 
 //phần menu
 const menuBtns = document.querySelectorAll('.menu-btn');
-const dishItems = document.querySelectorAll('.dish');
+const foodItems = document.querySelectorAll('.food-item');
 
-let activeBtn = "all";
+let activeBtn = "featured";
 
 showFoodMenu(activeBtn);
 
@@ -23,9 +23,9 @@ function resetActiveBtn(){
 
 function showFoodMenu(newMenuBtn){
     activeBtn = newMenuBtn;
-    dishItems.forEach((item) => {
+    foodItems.forEach((item) => {
         if(item.classList.contains(activeBtn)){
-            item.style.display = null;
+            item.style.display = "grid";
         } else {
             item.style.display = "none";
         }
