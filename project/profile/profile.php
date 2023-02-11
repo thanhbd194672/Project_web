@@ -68,83 +68,6 @@
                   <button type = "button" class = "menu-btn active-btn" id = "stall">Cửa hàng yêu thích</button>
                   <button type = "button" class = "menu-btn" id = "dish">Món ăn yêu thích</button>
                 </div>
-<<<<<<< Updated upstream
-
-              <div class = "food-items">
-                <!-- item -->
-                <div class = "food-item stall">
-                  <div class = "food-img">
-                    <img src = "../trangchu/foods/banana-bread-with-butter-and-milk.jpg" alt = "food image">
-                  </div>
-                  <div class = "food-content">
-                    <h2 class = "food-name">Banana Bread With Butter & Milk</h2>
-
-                    <div class = "line"></div>
-                    <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                    <p class = "food-loai">Loại: <span>Phở</span></p>
-                    <h3 class = "food-price">$25.00</h3>
-                    <ul class = "rating">
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "far fa-star"></i></li>
-                    </ul>
-                    <p class = "category">Categories: <span>Featured</span></p>
-                  <button class="chi_tiet">Chi tiết</button>
-
-                  </div>
-                </div>
-            <!-- end of item -->
-                <!-- item -->
-                <div class = "food-item stall">
-                  <div class = "food-img">
-                    <img src = "../trangchu/foods/bread-with-seeds-and-butter.jpg" alt = "food image">
-                  </div>
-                  <div class = "food-content">
-                    <h2 class = "food-name">Bread With Seeds & Butter</h2>
-                    <div class = "line"></div>
-                    <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                    <p class = "food-loai">Loại: <span>Phở</span></p>
-                    <h3 class = "food-price">$27.00</h3>
-                    <ul class = "rating">
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "far fa-star"></i></li>
-                    </ul>
-                    <p class = "category">Categories: <span>Featured</span></p>
-                  <button class="chi_tiet">Chi tiết</button>
-                    
-                  </div>
-                </div>
-                <!-- end of item -->
-              <!-- item -->
-              <div class = "food-item stall">
-                  <div class = "food-img">
-                    <img src = "../trangchu/foods/bread-with-seeds-and-butter.jpg" alt = "food image">
-                  </div>
-                  <div class = "food-content">
-                    <h2 class = "food-name">Bread With Seeds & Butter</h2>
-                    <div class = "line"></div>
-                    <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                    <p class = "food-loai">Loại: <span>Phở</span></p>
-                    <h3 class = "food-price">$27.00</h3>
-                    <ul class = "rating">
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "far fa-star"></i></li>
-                    </ul>
-                    <p class = "category">Categories: <span>Featured</span></p>
-                  <button class="chi_tiet">Chi tiết</button>
-                    
-                  </div>
-                </div>
-                <!-- end of item -->
-=======
               
               <!-- favorite stall -->
               <div class = "food-items">
@@ -162,12 +85,11 @@
                       </div>
                       <div class = "food-content">
                         <h2 class = "food-name"><?php echo $row_1->name; ?></h2>
-                        <h3 class = "dia_chi"></h3>
+                        <h3 class = "time">Mở cửa :<?php echo " ".$row_1->time_o ." - ". $row_1->time_c; ?></h3>
                         <div class = "line"></div>
                         <h3 class = "dia_chi"><?php echo $row_1->address?></h3>
->>>>>>> Stashed changes
 
-                        <strong class = "category"><?php echo "Tele : " . $row_1->telephone_num?></strong>
+                        <strong class = "category"><?php echo "Liên lạc : " . $row_1->telephone_num?></strong>
                         <!-- <p class = "food-loai">Loại: <span>Phở</span></p> -->
                       <button class="chi_tiet">Chi tiết</button>
 
@@ -179,85 +101,6 @@
                     <!-- end of item -->
               </div>
 
-<<<<<<< Updated upstream
-              <div class = "food-item dish">
-                <!-- item -->
-                <div class = "food-img">
-                  <img src = "../trangchu/foods/barbecue.jpg" alt = "food image">
-                  </div>
-                  <div class = "food-content">
-                    <h2 class = "food-name">Barbecue</h2>
-                    <div class = "line"></div>
-                    <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                    <p class = "food-loai">Loại: <span>Phở</span></p>
-                    <h3 class = "food-price">$20.00</h3>
-                    <ul class = "rating">
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "far fa-star"></i></li>
-                    </ul>
-                    <p class = "category">Categories: <span>Today's Special</span></p>
-                    
-                  <button class="chi_tiet">Chi tiết</button>
-              
-                  </div>
-                </div>
-                <!-- end of item -->
-
-                <!-- item -->
-                <div class = "food-item dish">
-                  <div class = "food-img">
-                    <img src = "../trangchu/foods/barbecued-roasted-duck-ramen.jpg" alt = "food image">
-                  </div>
-                  <div class = "food-content">
-                    <h2 class = "food-name">Tá Lả - Ăn Vặt, Mì Xào, Cơm Chiên & Sinh Tố - Phan Văn Trị</h2>
-                    <div class = "line"></div>
-                    <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                    <p class = "food-loai">Loại: <span>Phở</span></p>
-                    <h3 class = "food-price">$35.00</h3>
-                    <ul class = "rating">
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "far fa-star"></i></li>
-                    </ul>
-                    <p class = "category">Categories: <span>New Arrivals</span></p>
-                  <button class="chi_tiet">Chi tiết</button>
-
-                  </div>
-                </div>
-                <!-- end of item -->
-                <div class = "food-item dish">
-                <!-- item -->
-                <div class = "food-img">
-                  <img src = "../trangchu/foods/barbecue.jpg" alt = "food image">
-                  </div>
-                  <div class = "food-content">
-                    <h2 class = "food-name">Barbecue</h2>
-                    <div class = "line"></div>
-                    <h3 class = "dia_chi">606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM</h3>
-                    <p class = "food-loai">Loại: <span>Phở</span></p>
-                    <h3 class = "food-price">$20.00</h3>
-                    <ul class = "rating">
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "fas fa-star"></i></li>
-                      <li><i class = "far fa-star"></i></li>
-                    </ul>
-                    <p class = "category">Categories: <span>Today's Special</span></p>
-                    
-                  <button class="chi_tiet">Chi tiết</button>
-              
-                  </div>
-                </div>
-                <!-- end of item -->
-              </div>
-
-=======
               <!-- end of favorite dish -->
               
               <!-- favorite dish -->
@@ -265,7 +108,7 @@
                   <?php 
                     for($count = 0 ; $count < sizeof($dish_list) ; $count++)
                     {
-                      $dish_query = "SELECT dishes.*,stalls.address[1] FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.id =" . $dish_list[$count] ;
+                      $dish_query = "SELECT dishes.*,stalls.address[1], stalls.name as name2 FROM public.dishes join stalls on (stalls.id = dishes.id_stall) WHERE dishes.id =" . $dish_list[$count] ;
                       $dish = pg_query($db_connection, $dish_query);
                       $row_2 = pg_fetch_object($dish);
                   ?>
@@ -275,15 +118,9 @@
                     </div>
                     <div class = "food-content">
                       <h2 class = "food-name"><?php echo $row_2->name; ?></h2>
+                      <h3 class = "food-price"><?php echo $row_2->name2 ; ?></h3>
                       <h3 class = "dia_chi"><?php echo $row_2->address; ?></h3>
                       <h3 class = "food-price"><?php echo $row_2->price . " đồng"; ?></h3>
-                      <ul class = "rating">
-                              <li><i class = "fas fa-star"></i></li>
-                              <li><i class = "fas fa-star"></i></li>
-                              <li><i class = "fas fa-star"></i></li>
-                              <li><i class = "fas fa-star"></i></li>
-                              <li><i class = "far fa-star"></i></li>
-                      </ul>
                       <p class = "sale">Sale: <span><?php echo $row_2->sale_off . "%"; ?></span></p> 
                       <button class="chi_tiet">Chi tiết</button>
                     </div>
@@ -293,7 +130,6 @@
               <!-- end of favorite dish -->
 
             
->>>>>>> Stashed changes
           </div>
         </div> 
       </div>
