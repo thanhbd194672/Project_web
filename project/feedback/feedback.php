@@ -11,7 +11,7 @@
  <?php 
       include "../connect_database/connect_db.php";
       //chưa có bảng feedback nên thử user
-      $query = "SELECT * FROM public.users ";
+      $query = "SELECT * FROM public.feedback";
 	  $result = pg_query($db_connection, $query) ;
 
  ?>
@@ -25,10 +25,15 @@
 					<div class="image"><img src="<?php echo $row['avatar']; ?>" alt="image"></div>
 						<div class="user-meta">
 							<div class="name"><?php echo $row['name']; ?></div>
-							<div class="day">3 day ago</div>
+							<?php if(isset($row['star'])) {?>
+							<div class="day"> Đánh giá web: <?php echo $row['star']; ?> <i class = "fas fa-star" style="color: orange;"></i></div>
+						<?php }else{ ?>
+							<div class="day"> Chưa đánh giá web</div>
+						<?php } ?>
 						</div>
 				</div>
-				<div class="comment-post"><?php echo $row['password']; ?></div>
+				
+				<div class="comment-post"><?php echo $row['comment']; ?> </div>
 			</div>
 		</div>
 	<?php } ?>
@@ -40,12 +45,23 @@
 				<div class="name"><?php echo $_SESSION['dangnhap'] ?></div>
 			</div>
 			<form method="post">
-				<textarea name="comment" cols="30" rows="10" placeholder="Your Comment" id="commentcheck" spellcheck="false"></textarea>
+				<textarea name="comment" cols="30" rows="10" placeholder="Your Feedback" id="commentcheck" spellcheck="false"></textarea>
+                 <span style="color: black;">Đánh giá web: </span>
+                 <select id="danhgia">
+                    <option value="0"> </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span style="color: orange;"><i class = "fas fa-star"></i> </span>
 				 <button type="submit" id="btn-submit">Feedback</button>
 			</form>
 <script>
         const form = {
             comment: document.getElementById('commentcheck'),
+            danhgia: document.getElementById('danhgia'),
             submit: document.getElementById('btn-submit'),
             messages: document.getElementById('form-messages')
         };
@@ -66,7 +82,7 @@
                 }
             };
 
-            const requestData = `comment=${form.comment.value}`;
+            const requestData = `comment=${form.comment.value}&danhgia=${form.danhgia.value}`;
 
             request.open('post', 'check.php');
             request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -76,15 +92,14 @@
         function handleResponse (responseObject) {
             if (responseObject.ok) {
                 location.href = 'feedback.php';
+
             } else {
                 while (form.messages.firstChild) {
                     form.messages.removeChild(form.messages.firstChild);
                 }
                 responseObject.messages.forEach((message) => {
                     alert(message);             
-                });
-
-                
+                });  
             }
         }
     </script>

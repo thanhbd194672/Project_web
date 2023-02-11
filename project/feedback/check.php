@@ -16,8 +16,8 @@ return true;
 }
 return false;
 }
-    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
-
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : ''; // lấy comment
+    $danhgia = isset($_POST['danhgia']) ? $_POST['danhgia'] : ''; // lấy dánh giá
     $ok = true;
     $messages = array();
 
@@ -30,18 +30,22 @@ return false;
         $text = $_POST['comment'];
         if(isBadWord($text))
         {
-             $messages[] = 'có badwords!';
+             $messages[] = 'Feedback có badwords! Không thể Submit';
         }
         else
         {
             $ok = true;
             $messages[] = 'Successful login!';
-            //cái này sẽ insert vào bảng feedback
-            // $username ='saokcao';
-            // $name = 'adsdsa';
-            // $sql = "INSERT INTO public.users (username, password, name) VALUES ('$username', '$text', '$name')";
-            // $result = pg_query($db_connection, $sql) ;
-             
+            //cái này sẽ insert vào bảng feedback có dánh giá
+            $username =$_SESSION['username'];
+            $name = $_SESSION['dangnhap'];
+            $avatar =$_SESSION['img'];
+            if($danhgia=='0'){
+            $sql = "INSERT INTO public.feedback (username, comment, name, avatar) VALUES ('$username', '$text', '$name','$avatar')";
+        }else{
+            $sql = "INSERT INTO public.feedback (username, comment, name,avatar, star) VALUES('$username', '$text', '$name','$avatar','$danhgia')";
+        }
+             $result = pg_query($db_connection, $sql) ;
         } 
     }
     echo json_encode(

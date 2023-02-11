@@ -55,6 +55,7 @@ ul{
 .post-comment .comment-post{
 	padding:  0 0 16px 58px;
 	color: black;
+	word-wrap: break-word;
 }
 .comment-box{
 	padding: 10px;
@@ -89,7 +90,7 @@ ul{
 
 }
 
-.comment-box input{
+.comment-box button{
 	float: right;
 	padding: 6px 10px;
 	border: none;
@@ -98,7 +99,7 @@ ul{
 	cursor: pointer;
 	border-radius: 3px;
 }
-.comment-box input:hover{
+.comment-box button:hover{
 	background: #0076bf;
 }
 @media screen and(max-width:650px)

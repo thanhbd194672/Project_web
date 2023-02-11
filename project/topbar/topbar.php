@@ -1,4 +1,5 @@
 <?php session_start(); 
+
     if(isset($_GET['login'])){
          $dangxuat = $_GET['login'];
               }else{
@@ -33,9 +34,14 @@
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
               <li><a href="../trangchu/foodinfo.php">Trang chủ</a></li>
+              
+               <?php if(isset($_SESSION['dangnhap'])){  ?>
               <li><a href="../profile/profile.php">Profile</a></li>
-              <li><a href="../commitform/commenttest.php">Feedback</a></li>
-              <li><a href="#">Flow us</a></li>
+            <?php } ?>
+              <li><a href="../feedback/feedback.php">Feedback</a></li>
+              <li><a href="#footer">Follow us</a></li>
+              <li><a href="#footer">Contact Us</a></li>
+
             </ul>
             <!--</!-->
 
