@@ -7,12 +7,36 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
+ <style>
+            
+            #pagination{
+                text-align: right;
+                margin-top: 15px;
+                margin-bottom:15px ;
+            }
+            .page-item{
+                border: 1px solid #ccc;
+                padding: 5px 9px;
+                color: white;
+            }
+            .current-page{
+                background: #000;
+                color: white;
+            }
+        </style>
  <?php include "../topbar/topbar.php" ?>
  <?php 
-      include "../connect_database/connect_db.php";
+      include "../connect_database/connect_db.php";  
+          $item_per_page =!empty($_GET['per_page'])?$_GET['per_page']:6;
+          $current_page =!empty($_GET['page'])?$_GET['page']:1;
+          $offset = ($current_page-1) * $item_per_page;
       //chưa có bảng feedback nên thử user
-      $query = "SELECT * FROM public.feedback";
+      $query = "SELECT * FROM public.feedback limit ".$item_per_page." offset ".$offset ;
+      $query1 = "SELECT * FROM public.feedback";
 	  $result = pg_query($db_connection, $query) ;
+      $result1 = pg_query($db_connection, $query1) ;
+      $result1 =pg_num_rows($result1);
+      $totalpagesaleoff = ceil($result1 / $item_per_page);
 
  ?>
 
@@ -104,7 +128,9 @@
         }
     </script>
 		</div>
+
 	<?php } ?>
+    <?php include "pagination.php" ?>
 	</div>
 	 <?php include "../footer/footer.php" ?>
 </body>
