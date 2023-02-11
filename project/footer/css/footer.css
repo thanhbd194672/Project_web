@@ -23,6 +23,7 @@ body{
 .footer{
     background-color: #1e1c2a;
     padding: 70px 0;
+    width: 100%;
 }
 .footer-col{
    width: 25%;

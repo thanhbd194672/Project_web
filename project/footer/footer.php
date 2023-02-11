@@ -16,18 +16,10 @@
        
         </head>
 <body class="footer_1">
-	<footer class="footer">
+	<footer class="footer" id="footer">
      <div class="container">
       <div class="row">
-        <div class="footer-col">
-          <h4>company</h4>
-          <ul>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">our services</a></li>
-            <li><a href="#">privacy policy</a></li>
-            <li><a href="#">affiliate program</a></li>
-          </ul>
-        </div>
+        
         <div class="footer-col">
             <h4>Tải app HNFood</h4>
           <ul>
@@ -51,7 +43,11 @@
           <li><a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=13113"> MX 363/GP-BTTTT</a></li>
           <li><a target="_blank" rel="nofollow" href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=13113"><img src="../images/gov_seals.jpg" width="160" style="margin-left: -5px;" alt="logo-da-dang-ky-bo-cong-thuong"></a></li>
         </ul></div>
-       
+        <div class="footer-col">
+          <h4>Contact us</h4>
+         <ul>
+           <li>0123-2933-708</li>
+        </ul></div>
       </div>
      </div>
   </footer>

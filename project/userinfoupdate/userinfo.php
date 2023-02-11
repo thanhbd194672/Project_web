@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   $db_connection = pg_connect("host=localhost dbname=postgres user=postgres password=postgres");
+include "../connect_database/connect_db.php";
   if(!isset($_SESSION['dangnhap'])){
         header('Location: ../trangchu/foodinfo.php');
     } 

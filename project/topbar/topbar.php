@@ -1,4 +1,5 @@
 <?php session_start(); 
+
     if(isset($_GET['login'])){
          $dangxuat = $_GET['login'];
               }else{
@@ -26,16 +27,21 @@
           <script src="../topbar/js/script.js" defer></script>
         </head>
 <body class="header">
-	<nav class="nav">
+  <nav class="nav">
             <i class="uil uil-bars navOpenBtn"></i>
             <a class="logo" href="../trangchu/foodinfo.php"><b>HNFoods</b></a>
             <!-- MENU của bài</!-->
             <ul class="nav-links">
               <i class="uil uil-times navCloseBtn"></i>
               <li><a href="../trangchu/foodinfo.php">Trang chủ</a></li>
-              <li><a href="../restaurant/restaurant.php">Restaurant</a></li>
+              
+               <?php if(isset($_SESSION['dangnhap'])){  ?>
               <li><a href="../profile/profile.php">Profile</a></li>
-              <li><a href="../commitform/commenttest.php">Feedback</a></li>
+            <?php } ?>
+              <li><a href="../feedback/feedback.php">Feedback</a></li>
+              <li><a href="#footer">Follow us</a></li>
+              <li><a href="#footer">Contact Us</a></li>
+
             </ul>
             <!--</!-->
 
@@ -76,9 +82,6 @@
                 <hr>
                 <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">
                   <p>Cập nhập thông tin</p>
-                </a>
-                <a href="" class="sub-menu-link">
-                  <p>Đã theo dõi</p> 
                 </a>
                 <a href="" class="sub-menu-link">
                   <p>Wish list</p> 
