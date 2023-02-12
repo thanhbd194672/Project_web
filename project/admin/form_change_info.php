@@ -49,9 +49,6 @@
   
   $result1 = pg_query($db_connection, $query);
     echo"<script>alert('Successfully uploaded!')</script>";
-      
-     
-    $_SESSION['dangnhap'] = $name_n;
     $row1 = pg_fetch_object($result1);
    
 }

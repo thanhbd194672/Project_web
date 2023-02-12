@@ -112,7 +112,7 @@
                 <a href="../admin/admin_update_stall.php" class="sub-menu-link">
                   <p>Sửa gian hàng</p> 
                 </a>
-                <a href="" class="sub-menu-link">
+                <a href="../admin/admin_add_dish.php" class="sub-menu-link">
                   <p>Thêm món ăn</p> 
                 </a>
                 <a href="../admin/admin_update_dishes.php" class="sub-menu-link">
