@@ -71,6 +71,32 @@
               </div>
             </div>
       <?php session_destroy();}
+      else{
+        if($_SESSION['dangnhap'] == '$admin'){?>
+           <img src="../images/avatar.jpg" alt="" class= "logo1" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id = "subMenu">
+              <div class="sub-menu">
+           <div class="user-info">
+              <img src="../images/avatar.jpg" alt="">
+                <h2><?php echo $_SESSION['dangnhap'] ?></h2>
+           </div>
+                <hr>
+                <a href="../admin/admin_update_stall.php" class="sub-menu-link">
+                  <p>Thêm gian hàng</p>
+                </a>
+                <a href="../admin/admin_update_stall.php" class="sub-menu-link">
+                  <p>Sửa gian hàng</p> 
+                </a>
+                <a href="" class="sub-menu-link">
+                  <p>Thêm món ăn</p> 
+                </a>
+                <a href="../admin/admin_update_dishes.php" class="sub-menu-link">
+                  <p>Sửa món ăn</p> 
+                </a>
+                <a href="?login=dangxuat" class="sub-menu-link">
+                  <p>Đăng xuất</p>
+                </a>
+    <?php } 
       else{ ?>
           <img src="<?php echo $_SESSION['img'] ?>"  alt="" class= "logo1" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id = "subMenu">
@@ -90,6 +116,7 @@
                   <p>Đăng xuẩt</p>
                 </a>
                  <?php 
+    }
     } ?>
 
         </div>

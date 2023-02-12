@@ -61,7 +61,7 @@
 			</div>
 		</div>
 	<?php } ?>
-		<?php if(isset($_SESSION['dangnhap'])){ ?>
+		<?php if(isset($_SESSION['dangnhap'])||$_SESSION['dangnhap'] == '$admin'){ ?>
 		<div class="comment-box">
 			<ul id="form-messages"></ul>
 			<div class="user">
