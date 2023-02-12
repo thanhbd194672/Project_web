@@ -1,4 +1,12 @@
 <?php 
+ $queries = array();
+ parse_str($_SERVER['QUERY_STRING'], $queries);
+
+ if(isset($queries['stall'])){
+
+   //Cần query ?stall=1 ...
+   $stall_id = $queries['stall'];
+ }
    include "../connect_database/connect_db.php";  
    session_start();
  
@@ -6,14 +14,23 @@
     if (isset($_POST['capnhap'])) {
 
   echo '<script language="javascript">alert("Successfully uploaded!!"); window.location="admin_update_stall.php";</script>';
+
   $name_n = $_POST['name_n'];
   $type = $_POST['type'];
-  $address = $_POST['address'];
+  $address = "{";
+  for($x = 1 ; $x <= $i ; $i++){
+    $addressp = $_POST['address_'.$x];
+    $address = $address . $addressp.",";
+  }
+  rtrim($address);
+
+  $address = $address."}";
+  
   $time_o = $_POST['time_o'];
   $time_c = $_POST['time_c'];
   $telephone_number = $_POST['telephone_number'];
   $image = $_POST['image'];
-
+  
   
   $fileName=$_FILES['image']['name'];
   $fileTempt=$_FILES['image']['tmp_name'];
@@ -24,11 +41,10 @@
   $src = $folder.$name;
   if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
     move_uploaded_file($fileTempt, $src);
-    echo"<script>alert('Successfully uploaded!')</script>";
   }else{
     $alert=1;
   }
-  $query ="UPDATE stalls SET name = '$name_n', address = '$address', type = '$type', telephone_num ='$telephone_number', time_o ='$time_o', time_c='$time_c', image ='$src' WHERE id = '$_SESSION[id_modify]'";
+  $query ="UPDATE stalls SET name = '$name_n', address = '$address', type = '$type', telephone_num ='$telephone_number', time_o ='$time_o', time_c='$time_c', image ='$src' WHERE id = '$stall_id'";
 
   
   $result1 = pg_query($db_connection, $query);
@@ -39,10 +55,13 @@
     $row1 = pg_fetch_object($result1);
    
 }
-$sql = "SELECT *,stalls.address[1] as diachi FROM stalls WHERE id = '$_SESSION[id_modify]'";
+$sql = "SELECT * FROM stalls WHERE id = '$stall_id'";
+
 $result = pg_query($db_connection, $sql) ;
 $row = pg_fetch_object($result);
-
+$q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$stall_id." ;";
+$address_q = pg_query($db_connection,$q_address);
+$i = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -66,10 +85,16 @@ $row = pg_fetch_object($result);
             <span class="details">Type</span>
             <input type="text" placeholder="Enter stall's type"  name="type"value="<?php  echo"$row->type"; ?>" required>
           </div>
+          <?php while($adr = pg_fetch_array($address_q)){$i += 1 ?>
+                
+             
           <div class="input-box">
             <span class="details">Address</span>
-            <input type="text" placeholder="Enter stall's address"  name ="address" value="<?php  echo"$row->diachi"; ?>" required>
+            <input type="text" placeholder="Enter stall's address"  name ="address_<?php echo $i?>" value="<?php  echo $adr['address_c']; ?>" required>
           </div>
+
+          <?php } ?>
+
           <div class="input-box">
             <span class="details">Time open</span>
             <input type="text" placeholder="Enter stall's time open" name ="time_o" value="<?php  echo"$row->time_o"; ?>"required>
