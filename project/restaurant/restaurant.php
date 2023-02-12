@@ -15,6 +15,7 @@
         <body>
           <!--header</!-->
           <?php include "../topbar/topbar.php" ?>
+          <?php include "controller/user_info.php" ?>
           <!--end of header</!-->
           <?php
             $queries = array();
@@ -22,7 +23,6 @@
 
             if(isset($queries['stall'])){
 
-              //Cần query ?stall=1 ...
               $stall_id = $queries['stall'];
               $db_connection =pg_connect("host=localhost dbname=postgres user=postgres password=postgres");
 
@@ -41,6 +41,7 @@
               $query_anvat = "SELECT * FROM public.dishes WHERE dishes.type = $1 and dishes.id_stall = $2 order by dishes.sale_off desc";
               $query_dotrangmieng = "SELECT * FROM public.dishes WHERE dishes.type = $1 and dishes.id_stall = $2 order by dishes.sale_off desc";
               $query_price = "SELECT min(dishes.price), max(dishes.price) FROM public.dishes WHERE dishes.id_stall = $1";
+              $query_comment = "SELECT comment.*, users.name FROM comment, users WHERE comment.id_stall = $1 and users.username = comment.username";
               
               $result0 = pg_prepare($db_connection, "query_saleoff", $query_safeoff);
               $result1 = pg_prepare($db_connection, "query_stall", $query_stall);
@@ -50,7 +51,8 @@
               $result5 = pg_prepare($db_connection, "query_banhngot", $query_banhngot);
               $result6 = pg_prepare($db_connection, "query_anvat", $query_anvat);
               $result7 = pg_prepare($db_connection, "query_dotrangmieng", $query_dotrangmieng);
-              $result8 = pg_prepare($db_connection, "query_price", $query_price);
+              $result8 = pg_prepare($db_connection, "query_price", $query_price); 
+              $result9 = pg_prepare($db_connection, "query_comment", $query_comment); 
               
               $showsafeoff = pg_execute($db_connection, "query_saleoff", array($stall_id));
               $stall= pg_execute($db_connection, "query_stall", array($stall_id));
@@ -61,11 +63,13 @@
               $showanvat = pg_execute($db_connection, "query_anvat", array($anvat, $stall_id));
               $showdotrangmieng = pg_execute($db_connection,"query_dotrangmieng", array($dotrangmieng, $stall_id));
               $price_min_max = pg_execute($db_connection,"query_price", array($stall_id));
-
+              $comments = pg_execute($db_connection,"query_comment", array($stall_id));
+              
               $order = array("featured", "do_an", "all", "banh_kem", "an_vat", "do_uong", "do_trang_mieng");
               $list_to_show = array($showsafeoff, $showdoan, $show, $showdobanhngot, $showanvat, $showdouong, $showdotrangmieng);
               
               $stall_info = pg_fetch_array($stall);
+          
               if(!$stall_info){
                 include "./err_restaurant.php";
                 exit(0);
@@ -119,17 +123,33 @@
                   }
                 ?>
               </div>
-              <div class="rate"><?php echo $stall_info['rating']?></div>
+              <div class="rate"><?php echo round($stall_info['rating'], 1);?></div>
               <div class="votes"><?php echo $stall_info['like_stall']?></div>
             </div>
             <div class="restaurant-time">
               <i class="fa-regular fa-clock" style="color: rgb(0 0 0);"></i>
               <?php echo substr($stall_info['time_o'], 0, -3)." - ".substr($stall_info['time_c'], 0, -3) ?></div>
+
             <div class="restaurant-price">
               <i class="fa-solid fa-dollar-sign" style="color: rgb(0 0 0);"></i>
               <?php echo $price_min_max_info[0]." - ".$price_min_max_info[1] ?> đ</div>
+            
+            <?php if(isset($_SESSION['dangnhap'])) {?>
+            <div class="feedback">
+              <button class="comment-button" id="comment-button">Bình luận</button>
+              <button class="like-button">
+                <?php 
+                if(in_array($stall_id, $_SESSION['follow_stall']))
+                { $to_follow = 0;
+                  ?><i class="fa-solid fa-heart"></i> 
+                <?php } else { $to_follow = 1; ?> <i class="fa-regular fa-heart"></i> <?php } ?>
+              </button>
+            </div>
+            <?php } ?>
           </div>
         </div>
+
+        <?php include "comment.php";?>
 
         <div class="restaurant-menu">
           <div class = "restaurant-menu-type">
@@ -190,16 +210,22 @@
                 type="text"
                 placeholder="Tìm Món"
                 name="Tim kiem"
+                id="search-bar"
               />
             </div>
             <div class="restaurant-dish-list">
               
               <?php 
               $traverse = 0;
+              $items_id = array();
               foreach($list_to_show as $show_one) {
                 $type = $order[$traverse];
                 $traverse++;
                 while($row_ = pg_fetch_array($show_one)){
+                  if($type == "all" && isset($_SESSION['dangnhap'])){
+                    if(in_array($row_['id'], $_SESSION['favorite_list'])) $items_id[$row_['id']] = 1;
+                    else $items_id[$row_['id']] = 0;
+                  }
               ?>
 
               <div class="<?php echo 'dish '.$type ?>">
@@ -209,43 +235,65 @@
                     src= "<?php echo '../trangchu/foods/'.$row_['image']?> "
                   />   
                 </div>
-
+                
                 <div class="dish-name">
                   <?php echo $row_['name']; ?>
                 </div>
                 <div class="dish-price">
                   <?php echo $row_['price']; ?> đ
                 </div>
-
+                <?php 
+                if(isset($_SESSION['dangnhap'])) {?>
+                <button class="dish-like <?php echo $row_['id'] ?>">
+                  <?php if(!in_array($row_['id'], $_SESSION['favorite_list'])) {?> <i class="fa-regular fa-thumbs-up"></i>
+                  <?php } else { ?> <i class="fa-sharp fa-solid fa-thumbs-up"></i>
+                </button>
+                <?php }}?>
               </div>
 
               <?php }}?>
             </div>
             
           </div>
+          <!-- <div class="restaurant-comment"> -->
+            <div class="comment-session">
+		        <?php while($row = pg_fetch_array($comments)){?>
+              <div class="post-comment">
+                <div class="list">
+                <div class="user">
+                <!-- <div class="image"><img src="" alt="image"></div> -->
+                <div class="user-meta">
+                  <div class="name"><?php echo $row['name']; ?></div>
+                  <?php if(isset($row['star'])) {?>
+                    <div class="day"> Đánh giá: <?php echo $row['star']; ?> <i class = "fas fa-star" style="color: orange;"></i></div>
+                    <?php } else { ?> <div class="day"> Chưa đánh giá</div> <?php } ?>
+						    </div>
+				        </div>
+				        <div class="comment-post"><?php echo $row['content']; ?> </div>
+			        </div>
+		        </div> <?php } ?>
 
+          <!-- </div> -->
         </div>
       </div>
   </div>
           <?php
-
-
-
-
-              
             } else {
               include "./err_restaurant.php";
               exit(0);
             }
 
           ?>
-
+  <script type="text/javascript" src="js/comment.js"></script>
+  <script type="text/javascript">
+    followButtonTrigger(<?php echo $to_follow?>, <?php echo $stall_id ?>);
+    var favorite_array =  { <?php 
+      foreach ($items_id as $indx => $value) {
+        echo "{$indx} : $value, ";
+      } ?>}
+    likeButtonsTrigger(favorite_array);
+  </script>
   
-
-    
-
-
-      
        <!-- footer-->
           <?php include "../footer/footer.php" ?>
 

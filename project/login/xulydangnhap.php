@@ -43,6 +43,7 @@ include "../connect_database/connect_db.php";;
 			$_SESSION['dangnhap'] = $row->name;
 			$_SESSION['username'] = $row->username;
 			$_SESSION['img'] = $row->avatar;
+
 			if(!isset($_SESSION['img']) || file_exists($row->avatar)!=true)
 			{
 				$_SESSION['img'] = $avatar_auto;
