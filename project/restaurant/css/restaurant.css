@@ -84,7 +84,7 @@ body{
 }
 .stars{
     font-size: 1rem;
-    color: black;
+    color: #ffc107;
     display: inline-block;
 }
 .half{
@@ -106,8 +106,9 @@ body{
 .votes{
     display: inline-block;
     margin-left: 0.5rem;
-    background-color: black;
-    border-radius: 0.375rem;
+    background-color: #ffc107;;
+    color: black;
+    border-radius: 9999px;
     font-size: 0.875rem;
     padding: 0.2rem;
 }
@@ -163,18 +164,17 @@ body{
 .restaurant-menu-type {
     flex-basis: 20%;
 }
-
+.restaurant-dish1 {
+    flex-basis: 50%;
+    max-width: 70%;
+    min-width: 50%;
+}
 .restaurant-dish {
-    flex-basis: 40%;
-    flex: 0 0 auto;
     flex-direction: column;
     display: flex;
-    max-width: 70%;
+    width: 100%;
     border-radius: 0.375rem;
     padding: 1rem;
-    flex-grow: 1;
-    margin-left: 1rem;
-    align-items: left;
     border-style: solid;
     border-color: white;
 }
@@ -223,6 +223,7 @@ body{
 .dish-price {
     color: #ff9505;
     margin: 1rem;
+    white-space: nowrap;
 }
 .dish-like {
     font-weight: bold;
@@ -233,11 +234,6 @@ body{
     border: none;
     color: white;
 }
-/* .restaurant-comment {
-    flex-basis: 40%;
-    margin: 2rem;
-    max-width: 30vw;
-} */
 
 @media screen and (min-width: 600px){
     .restaurant-res-container {
@@ -249,7 +245,7 @@ body{
     .menu-btns-col {
         align-items: center;
     }
-    .restaurant-dish {
+    .restaurant-dish1 {
         max-width: 100%;
     }
 }
@@ -264,7 +260,7 @@ body{
     .menu-btns-col {
         align-items: center;
     }
-    .restaurant-dish {
+    .restaurant-dish1 {
         max-width: 100%;
     }
 }
@@ -281,8 +277,8 @@ body{
     .menu-btns-col {
         align-items: flex-start;
     }
-    .restaurant-dish {
-        max-width: 70%;
+    .restaurant-dish1 {
+        max-width: 50%;
     }
 }
   

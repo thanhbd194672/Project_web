@@ -41,7 +41,7 @@
               $query_anvat = "SELECT * FROM public.dishes WHERE dishes.type = $1 and dishes.id_stall = $2 order by dishes.sale_off desc";
               $query_dotrangmieng = "SELECT * FROM public.dishes WHERE dishes.type = $1 and dishes.id_stall = $2 order by dishes.sale_off desc";
               $query_price = "SELECT min(dishes.price), max(dishes.price) FROM public.dishes WHERE dishes.id_stall = $1";
-              $query_comment = "SELECT comment.*, users.name FROM comment, users WHERE comment.id_stall = $1 and users.username = comment.username";
+              $query_comment = "SELECT comment.*, users.name FROM comment, users WHERE comment.id_stall = $1 and users.username = comment.username Order by comment.time desc";
               
               $result0 = pg_prepare($db_connection, "query_saleoff", $query_safeoff);
               $result1 = pg_prepare($db_connection, "query_stall", $query_stall);
@@ -68,7 +68,8 @@
               $order = array("featured", "do_an", "all", "banh_kem", "an_vat", "do_uong", "do_trang_mieng");
               $list_to_show = array($showsafeoff, $showdoan, $show, $showdobanhngot, $showanvat, $showdouong, $showdotrangmieng);
               
-              $stall_info = pg_fetch_array($stall);
+              $stall_info = pg_fetch_array($stall);  
+          
           
               if(!$stall_info){
                 include "./err_restaurant.php";
@@ -202,7 +203,7 @@
               </div>
             </div>
           </div>
-
+          <div class="restaurant-dish1">
           <div class="restaurant-dish">
             <div class="search-dish-bar">
               <i class="fa-solid fa-magnifying-glass awesome-icon" style=""></i>
@@ -255,6 +256,7 @@
             </div>
             
           </div>
+          </div>
           <!-- <div class="restaurant-comment"> -->
             <div class="comment-session">
 		        <?php while($row = pg_fetch_array($comments)){?>
@@ -270,6 +272,7 @@
 						    </div>
 				        </div>
 				        <div class="comment-post"><?php echo $row['content']; ?> </div>
+                <div class="comment-time"><?php echo $row['time']; ?></div>
 			        </div>
 		        </div> <?php } ?>
 

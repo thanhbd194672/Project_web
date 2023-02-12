@@ -19,7 +19,7 @@ $query_follow = "UPDATE users SET follow_stall = array_append(follow_stall, $1) 
 $query_unfollow = "UPDATE users SET follow_stall = array_remove(follow_stall, $1) WHERE username = $2";
 $query_like = "UPDATE users SET favorite_list = array_append(favorite_list, $1) WHERE username = $2";
 $query_unlike = "UPDATE users SET favorite_list = array_remove(favorite_list, $1) WHERE username = $2";
-$query_comment = "INSERT INTO comment (username, id_stall, content, star, time, like_cmt) VALUES($1, $2, $3, $4, to_timestamp($5, 'YYYY/MM/DD HH:MI:SS'), $6)";
+$query_comment = "INSERT INTO comment (username, id_stall, content, star, time, like_cmt) VALUES($1, $2, $3, $4, to_timestamp($5, 'YYYY/MM/DD HH24:MI:SS'), $6)";
 
 $result0 = pg_prepare($db_connection, "query_follow", $query_follow);
 $result1 = pg_prepare($db_connection, "query_unfollow", $query_unfollow);
@@ -68,7 +68,9 @@ if ($action == "comment") {
         echo "fail";
         die();
     }
-    $current_time = date("Y/m/d H:i:s"); 
+    $dt = new DateTime();
+    $dt->setTimezone(new DateTimeZone('Asia/Ho_Chi_Minh'));
+    $current_time = $dt->format('Y/m/d H:i:s');
     $like = pg_execute($db_connection, "insert_comment", array($_SESSION['username'], $stall_id, $value, $star, $current_time ,0));
     $status = pg_result_status($like);
     if ($status != PGSQL_COMMAND_OK) echo "fail";

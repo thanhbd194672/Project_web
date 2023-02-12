@@ -46,6 +46,7 @@
                 if (request.readyState == 4 && request.status == 200 && request.responseText == "success") {
                     location.href = 'restaurant.php?stall=<?php echo $_REQUEST["stall"];?>';
                 } else {
+                    console.log(request)
                     alert("Bad comment!");
                 }
             };
