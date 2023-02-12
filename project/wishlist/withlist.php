@@ -61,7 +61,7 @@
                     ?>
                     <div class = "food-item stall ">
                       <div class = "food-img">
-                        <img src = "<?php echo '../trangchu/foods/stalls/'.$row_1->image?>" alt = "food image">
+                        <img src = "<?php echo '../trangchu/stalls/'.$row_1->image?>" alt = "food image">
                       </div>
                       <div class = "food-content">
                         <h2 class = "food-name"><?php echo $row_1->name; ?></h2>

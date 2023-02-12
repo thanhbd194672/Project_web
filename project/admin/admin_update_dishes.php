@@ -33,23 +33,6 @@
                 color: white;
             }
         </style>
-<style>
-
-            #pagination{
-                text-align: right;
-                margin-top: 15px;
-                margin-bottom:15px ;
-            }
-            .page-item{
-                border: 1px solid #ccc;
-                padding: 5px 9px;
-                color: white;
-            }
-            .current-page{
-                background: #000;
-                color: white;
-            }
-        </style>
         </head>
         <body>
        
@@ -63,8 +46,14 @@
           $current_page =!empty($_GET['page'])?$_GET['page']:1;
           $offset =($current_page-1)*$item_per_page;
           
-          $query_all = "SELECT * FROM  dishes order by id asc";
+          $query_all = "SELECT * FROM  dishes order by id asc limit ".$item_per_page." offset ".$offset ;
+          $query_all_1 = "SELECT * FROM  dishes order by id asc";
+
           $show= pg_query($db_connection,$query_all);
+          $show1= pg_query($db_connection,$query_all_1);
+
+          $num =pg_num_rows($show1);
+           $totalpages = ceil($num / $item_per_page);
           while($row_ = pg_fetch_array($show)){
           
 ?>

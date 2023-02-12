@@ -225,11 +225,13 @@ img{
 /*    background: #ff9505;*/
 }
 h3.dia_chi {
-  padding: 0.4rem 0;
-  font-weight: 300;
-  font-size: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
+  width:400px;
+    padding: 0.4rem 0;
+    font-weight: 300;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis; 
 }
 .time {
   padding: 0.4rem 0;

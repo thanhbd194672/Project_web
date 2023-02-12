@@ -35,7 +35,7 @@
               <i class="uil uil-times navCloseBtn"></i>
               <li><a href="../trangchu/foodinfo.php">Trang chủ</a></li>
               
-               <?php if(isset($_SESSION['dangnhap'])){  ?>
+               <?php if(isset($_SESSION['dangnhap'])&&$_SESSION['dangnhap']!='$admin'){  ?>
               <li><a href="../profile/profile.php">Profile</a></li>
             <?php } ?>
               <li><a href="../feedback/feedback.php">Phản hồi</a></li>

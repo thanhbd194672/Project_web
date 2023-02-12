@@ -30,23 +30,6 @@
                 color: white;
             }
         </style>
-<style>
-
-            #pagination{
-                text-align: right;
-                margin-top: 15px;
-                margin-bottom:15px ;
-            }
-            .page-item{
-                border: 1px solid #ccc;
-                padding: 5px 9px;
-                color: white;
-            }
-            .current-page{
-                background: #000;
-                color: white;
-            }
-        </style>
         </head>
         <body>
           <!--header</!-->
@@ -68,8 +51,14 @@
           $banhngot = 'Bánh ngọt';
           $anvat = 'Đồ ăn vặt';
           $dotrangmieng = 'Đồ tráng miệng';
-          $query_all = "SELECT * FROM  stalls";
+          $query_all = "SELECT * FROM  stalls limit ".$item_per_page." offset ".$offset ;
+          $query_all_1 = "SELECT * FROM  stalls";
+
           $show= pg_query($db_connection,$query_all);
+          $show1= pg_query($db_connection,$query_all_1);
+
+          $num =pg_num_rows($show1);
+           $totalpages = ceil($num / $item_per_page);
           while($row_ = pg_fetch_array($show)){
           $q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$row_['id']." ;";
           $address = pg_query($db_connection,$q_address);
