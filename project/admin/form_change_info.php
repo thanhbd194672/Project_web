@@ -18,11 +18,11 @@
   $name_n = $_POST['name_n'];
   $type = $_POST['type'];
   $address = "{";
-  for($x = 1 ; $x <= $i ; $i++){
-    $addressp = $_POST['address_'.$x];
-    $address = $address . $addressp.",";
-  }
-  rtrim($address);
+//   for($x = 1 ; $x <= $i ; $i++){
+    $addressp = $_POST['address'];
+    $address = $address . "\" $addressp \"";
+//   }
+
 
   $address = $address."}";
   
@@ -90,7 +90,7 @@ $i = 0;
              
           <div class="input-box">
             <span class="details">Address</span>
-            <input type="text" placeholder="Enter stall's address"  name ="address_<?php echo $i?>" value="<?php  echo $adr['address_c']; ?>" required>
+            <input type="text" placeholder="Enter stall's address"  name ="address" value="<?php  echo $adr['address_c']; ?>" required>
           </div>
 
           <?php } ?>

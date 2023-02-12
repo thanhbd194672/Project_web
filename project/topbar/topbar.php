@@ -115,7 +115,7 @@
                 <a href="" class="sub-menu-link">
                   <p>Thêm món ăn</p> 
                 </a>
-                <a href="" class="sub-menu-link">
+                <a href="../admin/admin_update_dishes.php" class="sub-menu-link">
                   <p>Sửa món ăn</p> 
                 </a>
                 <a href="?login=dangxuat" class="sub-menu-link">
