@@ -93,7 +93,7 @@ $i = 0;
           
           <div class="input-box">
             <span class="details">Image</span>
-            <input type="file"  name="image"  >
+            <input type="file"  name="image"  required>
           </div>
          
         </div>
