@@ -88,9 +88,7 @@
                 <h3 class = "dia_chi"><?php echo $adr['address_c']?></h3>
              <?php } ?>
                
-                <a href="form_change_info.php" onclick = "function myfunc(){<?php $_SESSION['id_modify'] = $row_['id']?>;}" class="chi_tiet">
-                  <p>Sửa</p>
-                </a>
+             <a href=" <?php echo '/PJ_Web/Project_web/project/admin/form_change_info.php?stall='.$row_['id'] ?>" class="chi_tiet">Sửa</a>
               </div>
             </div>
             <!-- end of item -->
