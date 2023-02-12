@@ -26,13 +26,13 @@
   if($_FILES['image']['name'] != NULL){
   $fileName=$_FILES['image']['name'];
   $fileTempt=$_FILES['image']['tmp_name'];
-  $folder='stall'.$row_p->id_stall.'/';
+  $folder='../trangchu/foods/stall'.$row_p->id_stall.'/';
   $name=$fileName;
   $ext=substr($name,strlen($name)-3,3);
   $ext1=substr($name,strlen($name)-4,4);
-  $src = $folder.$name;
+  $src = 'stall'.$row_p->id_stall.'/'.$fileName;
   if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
-    move_uploaded_file($fileTempt, $src);
+    move_uploaded_file($fileTempt, $folder.$name);
   }else{
     $alert=1;
   }
@@ -48,7 +48,7 @@
     echo"<script>alert('Successfully uploaded!')</script>";
       
      
-    $_SESSION['dangnhap'] = $name_n;
+   
     $row1 = pg_fetch_object($result1);
    
 }

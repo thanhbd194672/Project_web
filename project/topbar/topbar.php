@@ -106,7 +106,7 @@
                 <h2><?php echo $_SESSION['dangnhap'] ?></h2>
            </div>
                 <hr>
-                <a href="../admin/admin_update_stall.php" class="sub-menu-link">
+                <a href="../admin/admin_add_stall.php" class="sub-menu-link">
                   <p>Thêm gian hàng</p>
                 </a>
                 <a href="../admin/admin_update_stall.php" class="sub-menu-link">

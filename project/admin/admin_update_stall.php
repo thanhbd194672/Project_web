@@ -63,11 +63,7 @@
           $current_page =!empty($_GET['page'])?$_GET['page']:1;
           $offset =($current_page-1)*$item_per_page;
           
-          $doan = 'Đồ ăn';
-          $douong = 'Đồ uống';
-          $banhngot = 'Bánh ngọt';
-          $anvat = 'Đồ ăn vặt';
-          $dotrangmieng = 'Đồ tráng miệng';
+          
           $query_all = "SELECT * FROM  stalls";
           $show= pg_query($db_connection,$query_all);
           while($row_ = pg_fetch_array($show)){
@@ -79,7 +75,7 @@
             <!-- item -->
             <div class = "food-item featured ">
               <div class = "food-img">
-                <img src = "<?php echo '../trangchu/foods/'.$row_['image']?>" alt = "food image">
+                <img src = "<?php echo '../trangchu/stalls/'.$row_['image']?>" alt = "food image">
               </div>
               <div class = "food-content">
                 <h2 class = "food-name"><?php echo $row_['name']; ?></h2>

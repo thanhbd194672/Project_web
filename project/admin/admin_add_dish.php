@@ -14,21 +14,18 @@
   $price = $_POST['price'];
   $image = $_POST['image'];
   
-
-
-
-  $fileName=$_FILES['image']['name'];
-  $fileTempt=$_FILES['image']['tmp_name'];
-  $folder='stall'.$_POST['name_stall'].'/';
-  $name=$fileName;
-  $ext=substr($name,strlen($name)-3,3);
-  $ext1=substr($name,strlen($name)-4,4);
-  $src = $folder.$name;
-  if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
-    move_uploaded_file($fileTempt, $src);
-  }else{
-    $alert=1;
-  }
+    $fileName=$_FILES['image']['name'];
+    $fileTempt=$_FILES['image']['tmp_name'];
+    $folder='../trangchu/foods/stall'.$_POST['name_stall'].'/';
+    $name=$fileName;
+    $ext=substr($name,strlen($name)-3,3);
+    $ext1=substr($name,strlen($name)-4,4);
+    $src = 'stall'.$_POST['name_stall'].'/'.$fileName;
+    if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
+      move_uploaded_file($fileTempt, $folder.$name);
+    }else{
+      $alert=1;
+    }
   
   $query ="INSERT INTO public.dishes(id_stall,name, type, sale_off, price,image) VALUES ($id_quan,'$name_n', '$type',$saleoff, $price,'$src');";
  

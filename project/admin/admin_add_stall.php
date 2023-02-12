@@ -1,12 +1,5 @@
 <?php 
- $queries = array();
- parse_str($_SERVER['QUERY_STRING'], $queries);
 
- if(isset($queries['stall'])){
-
-   //Cần query ?stall=1 ...
-   $stall_id = $queries['stall'];
- }
    include "../connect_database/connect_db.php";  
    session_start();
  
@@ -17,14 +10,7 @@
 
   $name_n = $_POST['name_n'];
   $type = $_POST['type'];
-  $address = "{";
-//   for($x = 1 ; $x <= $i ; $i++){
-    $addressp = $_POST['address'];
-    $address = $address . "\" $addressp \"";
-//   }
-
-
-  $address = $address."}";
+  $address = $_POST['address'];
   
   $time_o = $_POST['time_o'];
   $time_c = $_POST['time_c'];
@@ -32,33 +18,27 @@
   $image = $_POST['image'];
   
   
+
     $fileName=$_FILES['image']['name'];
     $fileTempt=$_FILES['image']['tmp_name'];
     $folder='../trangchu/stalls/';
     $name=$fileName;
     $ext=substr($name,strlen($name)-3,3);
     $ext1=substr($name,strlen($name)-4,4);
-    $src = $name;
+    $src = $fileName;
     if($ext=="JPG"||$ext=="jpg"||$ext1=="JPEG"||$ext1=="jpeg"||$ext=="GIF"||$ext=="gif"||$ext=="BMP"||$ext=="bmp"||$ext=="PNG"||$ext=="png"){
       move_uploaded_file($fileTempt, $folder.$name);
     }else{
       $alert=1;
     }
-  $query ="UPDATE stalls SET name = '$name_n', address = '$address', type = '$type', telephone_num ='$telephone_number', time_o ='$time_o', time_c='$time_c', image ='$src' WHERE id = '$stall_id'";
+  $query ="INSERT INTO stalls  (name,address,telephone_num,type,time_o,time_c,image )values('$name_n','{\"$address\"}','{\"$telephone_number\"}', '$type',  '$time_o', '$time_c', '$src')";
 
   
   $result1 = pg_query($db_connection, $query);
-    echo"<script>alert('Successfully uploaded!')</script>";
     $row1 = pg_fetch_object($result1);
    
 }
-$sql = "SELECT * FROM stalls WHERE id = '$stall_id'";
 
-$result = pg_query($db_connection, $sql) ;
-$row = pg_fetch_object($result);
-$q_address = "SELECT address_c from public.stalls, unnest (stalls.address) as address_c where stalls.id = ".$stall_id." ;";
-$address_q = pg_query($db_connection,$q_address);
-$i = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -76,37 +56,36 @@ $i = 0;
         <div class="user-details">
           <div class="input-box">
             <span class="details">Name</span>
-            <input type="text" placeholder="Enter stall's name" name ="name_n" value="<?php  echo"$row->name"; ?>" required>
+            <input type="text" placeholder="Enter stall's name" name ="name_n"required>
           </div>
           <div class="input-box">
             <span class="details">Type</span>
-            <input type="text" placeholder="Enter stall's type"  name="type"value="<?php  echo"$row->type"; ?>" required>
+            <input type="text" placeholder="Enter stall's type"  name="type" required>
           </div>
-          <?php while($adr = pg_fetch_array($address_q)){$i += 1 ?>
                 
              
           <div class="input-box">
             <span class="details">Address</span>
-            <input type="text" placeholder="Enter stall's address"  name ="address" value="<?php  echo $adr['address_c']; ?>" required>
+            <input type="text" placeholder="Enter stall's address"  name ="address" required>
           </div>
 
-          <?php } ?>
+          
 
           <div class="input-box">
             <span class="details">Time open</span>
-            <input type="text" placeholder="Enter stall's time open" name ="time_o" value="<?php  echo"$row->time_o"; ?>"required>
+            <input type="text" placeholder="Enter stall's time open" name ="time_o"required>
           </div>
           <div class="input-box">
             <span class="details">Time close</span>
-            <input type="text" placeholder="Enter stall's time close" name="time_c" value="<?php  echo"$row->time_c"; ?>" required>
+            <input type="text" placeholder="Enter stall's time close" name="time_c"required>
           </div>
           <div class="input-box">
             <span class="details">Telephone number</span>
-            <input type="text" placeholder="Enter telephone num" name="telephone_number" value="<?php  echo"$row->telephone_num"; ?>"required >
+            <input type="text" placeholder="Enter telephone num" name="telephone_number" required >
           </div>
           <div class="input-box">
             <span class="details">Image</span>
-            <input type="file"  name="image" value="<?php  echo"$row->image"; ?>" >
+            <input type="file"  name="image"  required>
           </div>
          
         </div>
