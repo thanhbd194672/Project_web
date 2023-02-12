@@ -64,6 +64,15 @@ body{
     color: #ffffff;
     padding-left: 8px;
 }
+.footer-col ul li i{
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #bbbbbb;
+    display: block;
+ 
+}
+
 .footer-col .social-links a{
     display: inline-block;
     height: 40px;
@@ -82,6 +91,15 @@ body{
 }
 .footer-col ul li a img{
     width: 70%;
+}
+.fa-map-marker-alt:before{
+    margin-right: 10px;
+}
+.fa-phone-alt:before{
+    margin-right: 10px;
+}
+.fa-envelope:before{
+    margin-right: 10px;
 }
 /*responsive*/
 @media(max-width: 767px){

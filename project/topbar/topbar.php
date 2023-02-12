@@ -38,9 +38,9 @@
                <?php if(isset($_SESSION['dangnhap'])){  ?>
               <li><a href="../profile/profile.php">Profile</a></li>
             <?php } ?>
-              <li><a href="../feedback/feedback.php">Feedback</a></li>
-              <li><a href="#footer">Follow us</a></li>
-              <li><a href="#footer">Contact Us</a></li>
+              <li><a href="../feedback/feedback.php">Phản hồi</a></li>
+              <li><a href="#footer">Tham gia</a></li>
+              <li><a href="#footer">Credit</a></li>
 
             </ul>
             <!--</!-->
@@ -83,7 +83,7 @@
                 <a href="../userinfoupdate/userinfo.php" class="sub-menu-link">
                   <p>Cập nhập thông tin</p>
                 </a>
-                <a href="" class="sub-menu-link">
+                <a href="../wishlist/withlist.php" class="sub-menu-link">
                   <p>Wish list</p> 
                 </a>
                 <a href="?login=dangxuat" class="sub-menu-link">

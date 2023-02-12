@@ -184,14 +184,14 @@
           </div>
 
           <div class="restaurant-dish">
-            <div class="search-dish-bar">
+            <!-- <div class="search-dish-bar">
               <i class="fa-solid fa-magnifying-glass awesome-icon" style=""></i>
               <input
                 type="text"
                 placeholder="Tìm Món"
                 name="Tim kiem"
               />
-            </div>
+            </div> -->
             <div class="restaurant-dish-list">
               
               <?php 

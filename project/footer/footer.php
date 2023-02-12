@@ -37,6 +37,7 @@
             <a href="https://www.foody.vn/"><i class="fab fa-google"></i></a>
           </div>
         </div>
+
         <div class="footer-col">
           <h4>Giấy phép</h4>
          <ul>
@@ -45,9 +46,12 @@
         </ul></div>
         <div class="footer-col">
           <h4>Contact us</h4>
-         <ul>
-           <li>0123-2933-708</li>
-        </ul></div>
+            <ul>
+            <li><i class="fas fa-map-marker-alt">Đại học bách khoa Hà Nội</i></li>
+            <li><i class="fas fa-phone-alt">+089-1005200156</i></li>
+            <li>  <i class="fas fa-envelope">hanoifoods@gmail.com</i></li>
+            </ul>
+          </div>
       </div>
      </div>
   </footer>

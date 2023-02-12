@@ -9,14 +9,14 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>HNFOOD</title>
           <!-- CSS -->
-          <link rel="stylesheet" href="css/profile.css" />
-          <link href="css/profile.css?t=[timestamp]" type="text/css" rel="stylesheet">
+          <link rel="stylesheet" href="css/withlist.css" />
+          <link href="css/withlist.css?t=[timestamp]" type="text/css" rel="stylesheet">
           <!-- Unicons CSS -->
           <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-          <script src="js/profile.js" defer></script>
+          <script src="js/script.js" defer></script>
         </head>
          
   <body >
@@ -40,28 +40,7 @@
               
               
           ?>
-         
-    <div class="container">
-      <!-- profile -->
-        <div class="box">
-          <div class="image">
-            <img src="<?php echo $_SESSION['img'] ?>">
-            </div>
-            <div class="name_job"><?php echo strtoupper($row->name);
-            ?></div>
-            
-            <p>E-MAIL: <?php echo strtoupper($row->username) ;
-            ?></p>
-            <p>Liên lạc: <?php echo $row->telephone_num ?></p>
-            <p>Địa chỉ: <?php echo $row->address ?></p>
-            <div class="btns">
-              <a href="../userinfoupdate/userinfo.php"><button> Chỉnh sửa </button></a>
-          </div>
-        </div>
-      </div>  
-      <!-- end of profile -->
-
-      <!-- menu -->
+     <!-- menu -->
       <div class="container">
         <div class="menu">
             <div class = "menu-container">

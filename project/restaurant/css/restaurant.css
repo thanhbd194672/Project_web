@@ -1,0 +1,246 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Kaushan+Script&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+:root{
+    --Inter: 'Inter', sans-serif;
+    --Kaushan: 'Kaushan Script', cursive;
+    --Mont: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+
+    line-height: 1.5;
+    font-family: var(--Mont);
+    background-color: #44355b;
+    color: #fff;
+}
+
+.restaurant-container {
+    width: 100%;
+    display: flex;
+    margin-top: 5rem;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.restaurant-floor {
+    flex: 0 0 auto;
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.restaurant-res-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;   
+    background: white;
+    border-radius: 4px;
+}
+
+.restaurant-image {
+    flex-basis: 50%;
+    width: 425px;
+    height: 296px;
+    margin: 1rem;
+}
+.restaurant-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.restaurant-info {
+    flex-basis: 50%;
+    width: 479px;
+    height: 288px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 2rem;
+}
+.restaurant-name {
+    font-size: 2rem;
+    padding-right: 0px;
+    margin-bottom: 1rem;
+    color: #ffc107;
+    padding-bottom: var(--dl-space-space-halfunit);
+}
+.restaurant-address{
+    font-size: 0.8rem;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.stars{
+    font-size: 1rem;
+    color: black;
+    display: inline-block;
+}
+.half{
+
+}
+.full{
+    
+}
+.rate {
+    display: inline-block;
+    color: black;
+    font-size: 0.9rem;
+    /* margin-left: 0.5rem;
+    background-color: #ffc107;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    padding: 0.2rem; */
+}
+.votes{
+    display: inline-block;
+    margin-left: 0.5rem;
+    background-color: black;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    padding: 0.2rem;
+}
+.restaurant-time {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: black;
+    font-weight: bold;
+}
+.restaurant-price {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: black;
+}
+.menu-btns-col{
+    padding: 0.6rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.restaurant-menu {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: column;
+    margin-bottom: 10rem;
+    margin-top: 3rem;
+}
+.restaurant-menu-type {
+    flex-basis: 25%;
+}
+
+.restaurant-dish {
+    flex-basis: 75%;
+    flex: 0 0 auto;
+    flex-direction: column;
+    display: flex;
+    /* width: 100%; */
+    border-radius: 0.375rem;
+    padding: 1rem;
+    flex-grow: 1;
+    margin-left: 1rem;
+    align-items: left;
+    border-style: solid;
+    border-color: white;
+}
+.restaurant-dish-list {
+    min-width: 60vw;
+}
+.search-dish-bar input{
+    width: 100%;
+    padding-left: 2rem; 
+    height: 2rem;
+}
+.search-dish-bar input:focus{
+    outline: none;  
+}
+.awesome-icon {
+    position: absolute;
+    padding: 0.5rem;
+    color: black;
+}
+.dish {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    padding: 1rem;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: #ff9505 ;
+    animation: fadeIn 2s;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.dish-image {
+    height: 60px;
+    width: 60px;
+}
+.dish-name {
+    font-weight: bold;
+    margin: 1rem;
+    flex-grow: 1;
+    text-align: center;
+}
+.dish-price {
+    color: #ff9505;
+    margin: 1rem;
+}
+
+@media screen and (min-width: 600px){
+    .restaurant-res-container {
+        flex-direction: column;
+    }
+    .restaurant-menu {
+        flex-direction: column;
+    }
+    .menu-btns-col {
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .restaurant-res-container {
+        flex-direction: column;
+    }
+    .restaurant-menu {
+        flex-direction: row;
+    }
+    .menu-btns-col {
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 992px){
+
+    .restaurant-res-container {
+        flex-direction: row;
+    }
+
+    .restaurant-menu {
+        flex-direction: row;
+    }
+    .menu-btns-col {
+        align-items: flex-start;
+    }
+}
+  

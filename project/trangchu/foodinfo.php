@@ -101,11 +101,7 @@
                 <h3 class = "food-price"><?php echo $row_['price'] . " đồng"; ?></h3>
               
                 <p class = "sale">Sale: <span><?php echo $row_['sale_off'] . "%"; ?></span></p> 
-<<<<<<< Updated upstream
-              <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
                 <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
 
               </div>
             </div>
@@ -129,11 +125,7 @@
                 <h3 class = "food-price"><?php echo $row_1['price'] . " đồng"; ?></h3>
                
                  <p class = "sale">Sale: <span><?php echo $row_1['sale_off'] . "%"; ?></span></p> 
-<<<<<<< Updated upstream
-               <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
                  <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_1['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
              
               </div>
             </div>
@@ -155,11 +147,7 @@
                 
               <p class = "sale">Sale: <span><?php echo $row_2['sale_off'] . "%"; ?></span></p> 
                 
-<<<<<<< Updated upstream
-               <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
               <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_2['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
           
               </div>
             </div>
@@ -182,11 +170,7 @@
               
               <p class = "sale">Sale: <span><?php echo $row_3['sale_off'] . "%"; ?></span></p> 
                 
-<<<<<<< Updated upstream
-               <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
               <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_3['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
 
               </div>
             </div>
@@ -207,11 +191,7 @@
                
               <p class = "sale">Sale: <span><?php echo $row_4['sale_off'] . "%"; ?></span></p> 
                 
-<<<<<<< Updated upstream
-               <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
               <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_4['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
                 
               </div>
             </div>
@@ -233,11 +213,7 @@
                 <h3 class = "food-price"><?php echo $row_7['price'] . " đồng"; ?></h3>
                
               <p class = "sale">Sale: <span><?php echo $row_7['sale_off'] . "%"; ?></span></p> 
-<<<<<<< Updated upstream
-             <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
               <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_7['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
 
               </div>
             </div>
@@ -259,11 +235,7 @@
                 
               <p class = "sale">Sale: <span><?php echo $row_8['sale_off'] . "%"; ?></span></p> 
                 
-<<<<<<< Updated upstream
-               <a href=""><button class="chi_tiet">Chi tiết</button></a>
-=======
               <a href=" <?php echo '../restaurant/restaurant.php?stall='.$row_8['id_stall'] ?>" class="chi_tiet">Chi tiết</a>
->>>>>>> Stashed changes
 
               </div>
             </div>
